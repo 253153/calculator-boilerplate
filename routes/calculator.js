@@ -1,27 +1,24 @@
 const express = require('express');
 const router = express.Router();
+const path = require('path');
+const fs = require('fs');
 
 router.get('/', (req, res) => {
-    res.sendFile('index.html', { root: 'views' });
+    res.sendFile(path.join(__dirname, '../views/index.html'));
 });
 
 router.post('/calculate', (req, res) => {
     const expression = req.body.expression;
 
     try {
-        // This is where the vulnerability is introduced
         const result = eval(expression);
-        res.sendFile('result.html', { root: 'views' }, (err) => {
-            if (err) {
-                res.status(500).send(err);
-            }
-        });
+        const resultHtml = fs.readFileSync(path.join(__dirname, '../views/result.html'), 'utf8')
+            .replace('<%= result %>', result);
+        res.send(resultHtml);
     } catch (error) {
-        res.sendFile('error.html', { root: 'views' }, (err) => {
-            if (err) {
-                res.status(500).send(err);
-            }
-        });
+        const errorHtml = fs.readFileSync(path.join(__dirname, '../views/error.html'), 'utf8')
+            .replace('<%= error.message %>', error.message);
+        res.send(errorHtml);
     }
 });
 

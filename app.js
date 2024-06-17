@@ -12,4 +12,3 @@ app.use('/', calculatorRouter);
 app.listen(port, () => {
     console.log(`Calculator app listening at http://localhost:${port}`);
 });
-
