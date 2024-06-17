@@ -1,0 +1,30 @@
+{
+  "name": "calculator-boilerplate",
+  "version": "1.0.0",
+  "description": "A boilerplate bootstrap/node.js project, with a calculator example for beginners learning how to create a node.js application and expose a web API.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/253153/calculator-boilerplate.git"
+  },
+  "keywords": [
+    "boilerplate",
+    "bootstrap",
+    "api",
+    "nodejs",
+    "javascript"
+  ],
+  "author": "253153",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/253153/calculator-boilerplate/issues"
+  },
+  "homepage": "https://github.com/253153/calculator-boilerplate#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
